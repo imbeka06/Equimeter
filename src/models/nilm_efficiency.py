@@ -1,7 +1,4 @@
-"""Layer 2 Appliance Efficiency Detection Module (NILM-style simulation).
-
-Architect and Developer: IMBEKA MUSA
-"""
+"""Layer 2 Appliance Efficiency Detection Module (NILM-style simulation)."""
 
 from __future__ import annotations
 
@@ -31,7 +28,7 @@ def appliance_energy_shares(nilm_df: pd.DataFrame) -> pd.DataFrame:
     """Compute appliance-level share of energy use."""
     totals = nilm_df[APPLIANCE_COLUMNS].sum()
     total_energy = totals.sum()
-    shares = (totals / total_energy * 100).rename("share_pct").reset_index(names="appliance")
+    shares = (totals / total_energy * 100).rename("share_pct").reset_index().rename(columns={"index": "appliance"})
     return shares.sort_values("share_pct", ascending=False)
 
 

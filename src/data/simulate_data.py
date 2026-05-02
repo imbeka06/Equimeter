@@ -1,7 +1,4 @@
-"""Synthetic socioeconomic and smart-meter datasets for EquiMeter AI.
-
-Architect and Developer: IMBEKA MUSA
-"""
+"""Synthetic socioeconomic and smart-meter datasets for EquiMeter."""
 
 from __future__ import annotations
 

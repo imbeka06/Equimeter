@@ -1,7 +1,4 @@
-"""Layer 1 Equity Classification Engine.
-
-Architect and Developer: IMBEKA MUSA
-"""
+"""Layer 1 Equity Classification Engine."""
 
 from __future__ import annotations
 
@@ -26,7 +23,7 @@ class PolicySimulationResult:
     affected_households: int
 
 
-class ImbekaMusaEquityKMeansEngine:
+class EquityKMeansEngine:
     """K-Means based segmentation for vulnerability-aware tariffs."""
 
     numeric_features = [

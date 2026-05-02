@@ -1,13 +1,10 @@
-"""Global configuration for EquiMeter AI.
-
-Architect and Developer: IMBEKA MUSA
-"""
+"""Global configuration for EquiMeter."""
 
 from __future__ import annotations
 
-PROJECT_NAME = "EquiMeter AI"
-PROJECT_TAGLINE = "EPRA Hackathon 2026 Decision-Support Dashboard"
-PROJECT_CREDIT = "Architect and Developer IMBEKA MUSA"
+PROJECT_NAME = "EquiMeter"
+PROJECT_TAGLINE = "Electricity Tariff Decision-Support System"
+PROJECT_CREDIT = "EquiMeter AI Platform"
 DEFAULT_RANDOM_SEED = 2026
 DEFAULT_HOUSEHOLDS = 1500
 NILM_HOUSEHOLDS = 120

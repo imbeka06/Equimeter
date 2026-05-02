@@ -1,7 +1,4 @@
-"""EquiMeter AI Streamlit dashboard.
-
-Architect and Developer: IMBEKA MUSA
-"""
+"""EquiMeter dashboard."""
 
 from __future__ import annotations
 
@@ -21,7 +18,7 @@ from src.config import (
 from src.data.simulate_data import generate_household_dataset, generate_nilm_dataset
 import plotly.graph_objects as go
 
-from src.models.equity_classifier import ImbekaMusaEquityKMeansEngine, simulate_tariff_policy
+from src.models.equity_classifier import EquityKMeansEngine, simulate_tariff_policy
 from src.models.nilm_efficiency import appliance_energy_shares, compute_efficiency_scores, detect_load_anomalies
 
 st.set_page_config(page_title=PROJECT_NAME, layout="wide")
@@ -34,7 +31,7 @@ def build_household_data(n_households: int, seed: int) -> pd.DataFrame:
 
 @st.cache_data(show_spinner=False)
 def run_equity_layer(household_df: pd.DataFrame, seed: int) -> pd.DataFrame:
-    engine = ImbekaMusaEquityKMeansEngine(random_state=seed)
+    engine = EquityKMeansEngine(random_state=seed)
     return engine.fit_predict(household_df)
 
 
@@ -336,7 +333,7 @@ def render_regulatory_summary(
     outcome_revenue: float,
 ) -> None:
     st.subheader("Regulatory Summary Report")
-    st.caption("Auto-generated policy narrative for EPRA submission")
+    st.caption("Auto-generated policy narrative")
 
     total_hh = len(segmented_df)
     vulnerable_n = int((segmented_df["equity_tier"] == "Vulnerable").sum())
@@ -351,8 +348,7 @@ def render_regulatory_summary(
     )
 
     st.markdown(f"""
-**EquiMeter AI — EPRA Hackathon 2026 Decision Brief**
-*Architect and Developer: IMBEKA MUSA*
+**EquiMeter — Decision Brief**
 
 ---
 
@@ -434,8 +430,8 @@ def render_export(policy_df: pd.DataFrame, nilm_df: pd.DataFrame, merged_df: pd.
 
 
 def main() -> None:
-    st.title(f"{PROJECT_NAME} | {PROJECT_TAGLINE}")
-    st.caption(PROJECT_CREDIT)
+    st.title(PROJECT_NAME)
+    st.caption(PROJECT_TAGLINE)
 
     st.sidebar.header("Simulation Controls")
     seed = st.sidebar.number_input("Random Seed", min_value=1, max_value=999999, value=DEFAULT_RANDOM_SEED, step=1)
