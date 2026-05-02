@@ -1,6 +1,6 @@
 # EquiMeter AI
 
-EquiMeter AI is a two-layer decision-support system for EPRA Hackathon 2026.
+EquiMeter AI is a two-layer decision-support system.
 
 Architect and Developer IMBEKA MUSA
 
